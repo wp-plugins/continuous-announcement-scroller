@@ -5,8 +5,10 @@ Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scro
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags:  Continuous, announcement, scroller, message
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 9.0
+Tested up to: 3.4.2
+Stable tag: 10.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
 This plug-in will create a vertical scroll continuous announcement for your wordpress website.
  
@@ -95,54 +97,60 @@ http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 
 == Upgrade Notice ==
 
-1.0				
+= 1.0 =				
 First version.
 
-2.0				
+= 2.0 =				
 More help included.
 
-3.0
+= 3.0 =
 Admin security option included ( Only admin user can see this plugin)
 
-5.0
+= 5.0 =
 3.0 bug solved
 
-6.0		
+= 6.0 =		
 Tested upto 3.3
 
-7.0		
+= 7.0 =		
 Now option to display random order
 Tested upto 3.3.1
 
-8.0		
+= 8.0 =		
 Tested upto 3.4
 
-9.0
+= 9.0 =
 New demo link, www.gopiplus.com
+
+= 10.0 =		
+Tested upto 3.4.2
 
 == Changelog ==
 
-1.0		
+= 1.0 =		
 First version
 
-2.0				
+= 2.0 =				
 More help included.
 
-3.0
+= 3.0 =
 Admin security option included ( Only admin user can see this plugin)
 
-5.0
+= 5.0 =
 3.0 bug solved
 
-6.0		
+= 6.0 =		
 Tested upto 3.3
 
-7.0		
+= 7.0 =		
 Now option to display random order
 Tested upto 3.3.1
 
-8.0		
+= 8.0 =		
 Tested upto 3.4
 
-9.0
+= 9.0 =
 New demo link, www.gopiplus.com
+
+= 10.0 =		
+Tested upto 3.4.2
