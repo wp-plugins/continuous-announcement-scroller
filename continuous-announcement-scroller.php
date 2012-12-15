@@ -5,7 +5,7 @@ Plugin Name: Continuous announcement scroller
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Description: This plug-in will create a vertical scroll continuous announcement for your wordpress website, <a href="http://www.gopiplus.com/work/" target="_blank">Live demo</a>.
 Author: Gopi.R
-Version: 10.0
+Version: 10.1
 Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Donate link: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags: Continuous, announcement, scroller, message
@@ -125,7 +125,6 @@ function cas()
 
 function cas_install() 
 {
-	
 	global $wpdb;
 	
 	if($wpdb->get_var("show tables like '". WP_cas_TABLE . "'") != WP_cas_TABLE) 
@@ -242,7 +241,6 @@ function cas_admin_options()
 	<?php
 }
 
-
 function cas_add_to_menu() 
 {
 	add_options_page('Continuous announcement scroller', 'Continuous announcement scroller', 'manage_options', __FILE__, 'cas_admin_options' );
@@ -275,7 +273,6 @@ function cas_deactivation()
 	delete_option('cas_rec_height');
 }
 
-
 function cas_add_javascript_files() 
 {
 	if (!is_admin())
@@ -285,7 +282,6 @@ function cas_add_javascript_files()
 }
 
 add_action('init', 'cas_add_javascript_files');
-
 add_action("plugins_loaded", "cas_init");
 register_activation_hook(__FILE__, 'cas_install');
 register_deactivation_hook(__FILE__, 'cas_deactivation');

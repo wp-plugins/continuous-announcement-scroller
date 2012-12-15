@@ -16,6 +16,7 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+ 
 function cas_scroll() {
 	cas_obj.scrollTop = cas_obj.scrollTop + 1;
 	cas_scrollPos++;

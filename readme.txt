@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scro
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags:  Continuous, announcement, scroller, message
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 10.0
+Tested up to: 3.5
+Stable tag: 10.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -40,24 +40,23 @@ See the live demo !
 To see my all plugin : [click to go](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)			
 More info : [click to go](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)
 	
-	
-	
 Version 4.0				
 Admin security option included ( Only admin user can see this plugin)
-
 
 == Installation ==	
 
 **Installation Instruction & Configuration**  	
 
 **Methode 1**	
+
 *   Unpack the *.zip file and extract the /continuous-announcement-scroller/ folder.    
 *   Drop the 'continuous-announcement-scroller' folder into your 'wp-content/plugins' folder.    
 *   In word press administration panels, click on plug-in from the menu. 	  
 *   You should see your new 'continuous announcement scroller' plug-in listed under Inactive plug-in tab.			
 *   To turn the word presses plug-in on, click activate.   
  
-**Methode 2**				
+**Methode 2**		
+		
 *	Go to 'add new' menu under 'plugins' tab in your wordpress admin.		
 *	Search 'continuous-announcement-scroller' plugin using search option.		
 *	Find the plugin & Click 'Install Now' link.		
@@ -89,6 +88,7 @@ Click the below link to see answer for all questions!
 More info : [click to go](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)		
 
 http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/	
+
 == Screenshots ==
 
 1. Admin - text management. http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/	
@@ -114,16 +114,19 @@ Tested upto 3.3
 
 = 7.0 =		
 Now option to display random order
-Tested upto 3.3.1
+Tested up to 3.3.1
 
 = 8.0 =		
-Tested upto 3.4
+Tested up to 3.4
 
 = 9.0 =
-New demo link, www.gopiplus.com
+New demo link, http://www.gopiplus.com
 
 = 10.0 =		
-Tested upto 3.4.2
+Tested up to 3.4.2
+
+= 10.1 =		
+Tested up to 3.5
 
 == Changelog ==
 
@@ -140,17 +143,20 @@ Admin security option included ( Only admin user can see this plugin)
 3.0 bug solved
 
 = 6.0 =		
-Tested upto 3.3
+Tested up to 3.3
 
 = 7.0 =		
 Now option to display random order
-Tested upto 3.3.1
+Tested up to 3.3.1
 
 = 8.0 =		
-Tested upto 3.4
+Tested up to 3.4
 
 = 9.0 =
-New demo link, www.gopiplus.com
+New demo link, http://www.gopiplus.com
 
 = 10.0 =		
-Tested upto 3.4.2
+Tested up to 3.4.2
+
+= 10.1 =		
+Tested up to 3.5
