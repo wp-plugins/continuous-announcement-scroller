@@ -5,7 +5,7 @@ Plugin Name: Continuous announcement scroller
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Description: This plug-in will create a vertical scroll continuous announcement for your wordpress website, <a href="http://www.gopiplus.com/work/" target="_blank">Live demo</a>.
 Author: Gopi.R
-Version: 10.1
+Version: 11.0
 Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Donate link: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags: Continuous, announcement, scroller, message
@@ -143,10 +143,10 @@ function cas_install()
 		$sSql = $sSql . "VALUES ('This is simply dummy announcement text.','http://www.gopiplus.com/work/', '1', 'YES', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_cas_TABLE . "` (`cas_text`,`cas_link`, `cas_order`, `cas_status`, `cas_date`)"; 
-		$sSql = $sSql . "VALUES ('To updae the setting use plugin link under wp setting tab.','http://www.gopiplus.com/work/', '2', 'YES', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('This is simply dummy announcement text.','http://www.gopiplus.com/work/', '2', 'YES', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 		$sSql = "INSERT INTO `". WP_cas_TABLE . "` (`cas_text`,`cas_link`, `cas_order`, `cas_status`, `cas_date`)"; 
-		$sSql = $sSql . "VALUES ('Click here to see more help for this wp plugin.','http://www.gopiplus.com/work/', '3', 'YES', '0000-00-00 00:00:00');";
+		$sSql = $sSql . "VALUES ('This is simply dummy announcement text.','http://www.gopiplus.com/work/', '3', 'YES', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 	}
 	
