@@ -17,53 +17,53 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-function cas_submit()
+function _cas_submit()
 {
-	if(document.form_mt.cas_text.value=="")
+	if(document.cas_form.cas_text.value=="")
 	{
-		alert("Please enter the message.")
-		document.form_mt.cas_text.focus();
+		alert("Please enter the announcement.")
+		document.cas_form.cas_text.focus();
 		return false;
 	}
-	else if(document.form_mt.cas_link.value=="")
+	else if(document.cas_form.cas_link.value=="")
 	{
 		alert("Please enter the link.")
-		document.form_mt.cas_link.focus();
+		document.cas_form.cas_link.focus();
 		return false;
 	}
-	else if(document.form_mt.cas_status.value=="")
+	else if(document.cas_form.cas_status.value=="")
 	{
 		alert("Please select the display status.")
-		document.form_mt.cas_status.focus();
+		document.cas_form.cas_status.focus();
 		return false;
 	}
-	else if(document.form_mt.cas_order.value=="")
+	else if(document.cas_form.cas_order.value=="")
 	{
 		alert("Please enter the display order, only number.")
-		document.form_mt.cas_order.focus();
+		document.cas_form.cas_order.focus();
 		return false;
 	}
-	else if(isNaN(document.form_mt.cas_order.value))
+	else if(isNaN(document.cas_form.cas_order.value))
 	{
 		alert("Please enter the display order, only number.")
-		document.form_mt.cas_order.focus();
+		document.cas_form.cas_order.focus();
 		return false;
 	}
-	_cas_escapeVal(document.form_mt.cas_text,'<br>');
+	_cas_escapeVal(document.cas_form.cas_text,'<br>');
 }
 
 function _cas_delete(id)
 {
 	if(confirm("Do you want to delete this record?"))
 	{
-		document.frm_hsa.action="options-general.php?page=continuous-announcement-scroller/content-management.php&AC=DEL&DID="+id;
-		document.frm_hsa.submit();
+		document.frm_cas_display.action="options-general.php?page=continuous-announcement-scroller&ac=del&did="+id;
+		document.frm_cas_display.submit();
 	}
 }	
 
 function _cas_redirect()
 {
-	window.location = "options-general.php?page=continuous-announcement-scroller/content-management.php";
+	window.location = "options-general.php?page=continuous-announcement-scroller";
 }
 
 function _cas_escapeVal(textarea,replaceWith)

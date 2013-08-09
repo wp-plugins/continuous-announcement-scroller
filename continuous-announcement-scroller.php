@@ -5,7 +5,7 @@ Plugin Name: Continuous announcement scroller
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Description: This plug-in will create a vertical scroll continuous announcement for your wordpress website, <a href="http://www.gopiplus.com/work/" target="_blank">Live demo</a>.
 Author: Gopi.R
-Version: 11.0
+Version: 11.1
 Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Donate link: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags: Continuous, announcement, scroller, message
@@ -15,10 +15,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_cas_TABLE", $wpdb->prefix . "cas_plugin");
+define("cas_UNIQUE_NAME", "continuous-announcement-scroller");
+define("cas_TITLE", "Continuous announcement scroller");
+define('cas_FAV', 'http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/');
+define('cas_LINK', 'Check official website for more information <a target="_blank" href="'.cas_FAV.'">click here</a>');
 
 function cas() 
 {
-	
 	global $wpdb;
 	$cas_html = "";
 	$cas_x = "";
@@ -159,12 +162,8 @@ function cas_install()
 
 function cas_control() 
 {
-	echo '<p>Continuous announcement scroller.<br> To change the setting/To manage content goto Continuous announcement scroller link under Setting menu.';
-	echo ' <a href="options-general.php?page=continuous-announcement-scroller/continuous-announcement-scroller.php">';
-	echo 'click here</a></p>';
-	?>
-	<a target="_blank" href='http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/'>Check official website for live demo</a><br />
-	<?php
+	echo '<p>Continuous announcement scroller. <a href="options-general.php?page=continuous-announcement-scroller">click here</a> to update announcement</p>';
+	echo cas_LINK;
 }
 
 function cas_widget($args) 
@@ -180,71 +179,27 @@ function cas_widget($args)
 function cas_admin_options() 
 {
 	global $wpdb;
-	?>
-
-	<div class="wrap">
-    <h2>Continuous announcement scroller</h2>
-    </div>
-	<?php
-	$cas_title = get_option('cas_title');
-	$cas_total_rec = get_option('cas_total_rec');
-	$cas_dis_count = get_option('cas_dis_count');
-	$cas_rec_height = get_option('cas_rec_height');
-	$cas_randomorder = get_option('cas_randomorder');
-	
-	if (@$_POST['cas_submit']) 
+	$current_page = isset($_GET['ac']) ? $_GET['ac'] : '';
+	switch($current_page)
 	{
-		$cas_title = stripslashes($_POST['cas_title']);
-		$cas_total_rec = stripslashes($_POST['cas_total_rec']);
-		$cas_dis_count = stripslashes($_POST['cas_dis_count']);
-		$cas_rec_height = stripslashes($_POST['cas_rec_height']);
-		$cas_randomorder = stripslashes($_POST['cas_randomorder']);
-		
-		update_option('cas_title', $cas_title );
-		update_option('cas_total_rec', $cas_total_rec );
-		update_option('cas_dis_count', $cas_dis_count );
-		update_option('cas_rec_height', $cas_rec_height );
-		update_option('cas_randomorder', $cas_randomorder );
+		case 'edit':
+			include('pages/content-management-edit.php');
+			break;
+		case 'add':
+			include('pages/content-management-add.php');
+			break;
+		case 'set':
+			include('pages/content-setting.php');
+			break;
+		default:
+			include('pages/content-management-show.php');
+			break;
 	}
-	
-	?>
-	<form name="cas_form" method="post" action="">
-	<?php
-	echo '<p>Title:<br><input  style="width: 200px;" type="text" value="';
-	echo $cas_title . '" name="cas_title" id="cas_title" /></p>';
-	
-	echo '<p>Each scroller height in scroll:<br><input  style="width: 100px;" type="text" value="';
-	echo $cas_rec_height . '" name="cas_rec_height" id="cas_rec_height" /> (default: 30) ';
-	echo 'If any overlap in the announcement text at front end, <br>you should arrange(increase/decrease) the height.</p>';
-	
-	echo '<p>Display number of record at the same time in scroll:<br><input  style="width: 100px;" type="text" value="';
-	echo $cas_dis_count . '" name="cas_dis_count" id="cas_dis_count" /></p>';
-	
-	echo '<p>Enter max number of record to scroll:<br><input  style="width: 100px;" type="text" value="';
-	echo $cas_total_rec . '" name="cas_total_rec" id="cas_total_rec" /></p>';
-	
-	echo '<p>Display random order:<br><input  style="width: 100px;" type="text" value="';
-	echo $cas_randomorder . '" name="cas_randomorder" id="cas_randomorder" /> YES / NO</p>';
-
-	echo '<input name="cas_submit" id="cas_submit" lang="publish" class="button-primary" value="Update Setting" type="Submit" />';
-	
-	?>
-	</form>
-	  <table width="100%">
-		<tr>
-		  <td align="right"><input name="text_management" lang="text_management" class="button-primary" onClick="location.href='options-general.php?page=continuous-announcement-scroller/content-management.php'" value="Go to - Text Management" type="button" />
-			<input name="setting_management" lang="setting_management" class="button-primary" onClick="location.href='options-general.php?page=continuous-announcement-scroller/continuous-announcement-scroller.php'" value="Go to - Scroller Setting" type="button" />
-		  </td>
-		</tr>
-	  </table>
-    <?php include_once("help.php"); ?>
-	<?php
 }
 
 function cas_add_to_menu() 
 {
-	add_options_page('Continuous announcement scroller', 'Continuous announcement scroller', 'manage_options', __FILE__, 'cas_admin_options' );
-	add_options_page('Continuous announcement scroller', ' ', 'manage_options', "continuous-announcement-scroller/content-management.php",'' );
+	add_options_page('Continuous announcement scroller', 'Continuous announcement scroller', 'manage_options', 'continuous-announcement-scroller', 'cas_admin_options' );
 }
 
 if (is_admin()) 

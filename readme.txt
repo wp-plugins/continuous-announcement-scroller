@@ -6,7 +6,7 @@ Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scro
 Tags:  Continuous, announcement, scroller, message
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 11.0
+Stable tag: 11.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -130,6 +130,9 @@ Tested up to 3.5
 = 11.0 =		
 Tested up to 3.6
 
+= 11.1 =	
+Minor change in the admin layout.
+
 == Changelog ==
 
 = 1.0 =		
@@ -165,3 +168,6 @@ Tested up to 3.5
 
 = 11.0 =		
 Tested up to 3.6
+
+= 11.1 =	
+Minor change in the admin layout.
