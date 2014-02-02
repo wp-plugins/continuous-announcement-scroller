@@ -2,7 +2,7 @@
   <div class="form-wrap">
     <div id="icon-edit" class="icon32 icon32-posts-post"><br>
     </div>
-    <h2><?php echo cas_TITLE; ?></h2>	
+    <h2><?php _e('Continuous announcement scroller', 'continuous-scroller'); ?></h2>	
     <?php
 	$cas_title = get_option('cas_title');
 	$cas_total_rec = get_option('cas_total_rec');
@@ -29,48 +29,49 @@
 		
 		?>
 		<div class="updated fade">
-			<p><strong>Details successfully updated.</strong></p>
+			<p><strong><?php _e('Details successfully updated.', 'continuous-scroller'); ?></strong></p>
 		</div>
 		<?php
 	}
 	?>
-	<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/continuous-announcement-scroller/pages/setting.js"></script>
+	<script language="JavaScript" src="<?php echo WP_cas_PLUGIN_URL; ?>/pages/setting.js"></script>
     <form name="cas_form" method="post" action="">
-        <h3>Setting</h3>
+        <h3><?php _e('Setting', 'continuous-scroller'); ?></h3>
 		
-		<label for="tag-width">Widget title</label>
+		<label for="tag-width"><?php _e('Widget title', 'continuous-scroller'); ?></label>
 		<input name="cas_title" type="text" value="<?php echo $cas_title; ?>"  id="cas_title" size="70" maxlength="100">
-		<p>Please enter your widget title.</p>
+		<p><?php _e('Please enter your widget title.', 'continuous-scroller'); ?></p>
 		
-		<label for="tag-width">Scroll height</label>
+		<label for="tag-width"><?php _e('Scroll height', 'continuous-scroller'); ?></label>
 		<input name="cas_rec_height" type="text" value="<?php echo $cas_rec_height; ?>"  id="cas_rec_height" maxlength="3">
-		<p>If any overlap in the announcement text at front end, you should arrange(increase/decrease) the height. (Example: 40)</p>
+		<p><?php _e('If any overlap in the announcement text at front end, you should arrange(increase/decrease) the height.', 'continuous-scroller'); ?> (Example: 40)</p>
 		
-		<label for="tag-width">Display record</label>
+		<label for="tag-width"><?php _e('Display record', 'continuous-scroller'); ?></label>
 		<input name="cas_dis_count" type="text" value="<?php echo $cas_dis_count; ?>"  id="cas_dis_count" maxlength="3">
-		<p>Please enter number of records you want to display at the same time in scroll. (Example: 5)</p>
+		<p><?php _e('Please enter number of records you want to display at the same time in scroll.', 'continuous-scroller'); ?> (Example: 5)</p>
 
-		<label for="tag-width">Record to scroll</label>
+		<label for="tag-width"><?php _e('Record to scroll', 'continuous-scroller'); ?></label>
 		<input name="cas_total_rec" type="text" value="<?php echo $cas_total_rec; ?>"  id="cas_total_rec" maxlength="3">
-		<p>Please enter maximum number of records to scroll. (Example: 10)</p>
+		<p><?php _e('Please enter maximum number of records to scroll.', 'continuous-scroller'); ?> (Example: 10)</p>
 		
-		<label for="tag-title">Random</label>
+		<label for="tag-title"><?php _e('Random', 'continuous-scroller'); ?></label>
 		<select name="cas_randomorder" id="cas_randomorder">
 			<option value='YES' <?php if($cas_randomorder == 'YES') { echo "selected='selected'" ; } ?>>Yes</option>
 			<option value='NO' <?php if($cas_randomorder == 'NO') { echo "selected='selected'" ; } ?>>No</option>
 		</select>
-		<p>Please select random display option.</p>
-		
-		
+		<p><?php _e('Please select random display option.', 'continuous-scroller'); ?></p>
 		
 		<input type="hidden" name="cas_form_submit" value="yes"/>
 		<p class="submit">
-		<input name="cas_submit" id="cas_submit" class="button" value="Submit" type="submit" />
-		<input name="publish" lang="publish" class="button" onclick="_cas_redirect()" value="Cancel" type="button" />
-		<input name="Help" lang="publish" class="button" onclick="_cas_help()" value="Help" type="button" />
+		<input name="cas_submit" id="cas_submit" class="button" value="<?php _e('Submit', 'continuous-scroller'); ?>" type="submit" />
+		<input name="publish" lang="publish" class="button" onclick="_cas_redirect()" value="<?php _e('Cancel', 'continuous-scroller'); ?>" type="button" />
+		<input name="Help" lang="publish" class="button" onclick="_cas_help()" value="<?php _e('Help', 'continuous-scroller'); ?>" type="button" />
 		</p>
 		<?php wp_nonce_field('cas_form_setting'); ?>
     </form>
   </div>
-  <p class="description"><?php echo cas_LINK; ?></p>
+<p class="description">
+	<?php _e('Check official website for more information', 'continuous-scroller'); ?>
+	<a target="_blank" href="<?php echo cas_FAV; ?>"><?php _e('click here', 'continuous-scroller'); ?></a>
+</p>
 </div>

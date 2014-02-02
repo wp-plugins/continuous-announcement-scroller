@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scro
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags:  Continuous, announcement, scroller, message
 Requires at least: 3.4
-Tested up to: 3.6
-Stable tag: 11.1
+Tested up to: 3.8
+Stable tag: 11.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -21,7 +21,7 @@ Check official website for live demo [http://www.gopiplus.com/work/2010/09/04/co
 * [Comments/Suggestion](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)			
 * [About author](http://www.gopiplus.com/work/)				
 
-Continuous announcement scroller wordpress plugin create an announcement widget in the website, it’s not a simply message display instead the message will scroll vertically from bottom to top like roller and many message display at the same time. 
+Continuous announcement scroller wordpress plugin create an announcement widget in the website, its not a simply message display instead the message will scroll vertically from bottom to top like roller and many message display at the same time. 
 
 This plugin will support multilingual content. There is separate text management page available in the dashboard to add the announcement content.
 
@@ -90,84 +90,120 @@ http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 
 == Screenshots ==
 
-1. Admin - text management. http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/	
+1. Front Screen. http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/	
 
-2. Admin - scroller setting. http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/	
+2. Admin Screen. http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/	
 
 == Upgrade Notice ==
 
-= 1.0 =				
+= 1.0 =
+			
 First version.
 
-= 2.0 =				
+= 2.0 =
+				
 More help included.
 
 = 3.0 =
+
 Admin security option included ( Only admin user can see this plugin)
 
 = 5.0 =
+
 3.0 bug solved
 
-= 6.0 =		
+= 6.0 =
+		
 Tested upto 3.3
 
-= 7.0 =		
+= 7.0 =
+		
 Now option to display random order
 Tested up to 3.3.1
 
-= 8.0 =		
+= 8.0 =
+		
 Tested up to 3.4
 
 = 9.0 =
+
 New demo link, http://www.gopiplus.com
 
-= 10.0 =		
+= 10.0 =
+		
 Tested up to 3.4.2
 
-= 10.1 =		
+= 10.1 =
+		
 Tested up to 3.5
 
-= 11.0 =		
+= 11.0 =
+		
 Tested up to 3.6
 
-= 11.1 =	
+= 11.1 =
+	
 Minor change in the admin layout.
+
+= 11.2 =
+
+1. Tested up to 3.8
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (continuous-scroller.po) available in the languages folder.
 
 == Changelog ==
 
-= 1.0 =		
+= 1.0 =
+		
 First version
 
-= 2.0 =				
+= 2.0 =
+				
 More help included.
 
 = 3.0 =
+
 Admin security option included ( Only admin user can see this plugin)
 
 = 5.0 =
+
 3.0 bug solved
 
-= 6.0 =		
+= 6.0 =
+		
 Tested up to 3.3
 
-= 7.0 =		
+= 7.0 =
+		
 Now option to display random order
 Tested up to 3.3.1
 
-= 8.0 =		
+= 8.0 =
+		
 Tested up to 3.4
 
 = 9.0 =
+
 New demo link, http://www.gopiplus.com
 
-= 10.0 =		
+= 10.0 =
+		
 Tested up to 3.4.2
 
-= 10.1 =		
+= 10.1 =
+		
 Tested up to 3.5
 
-= 11.0 =		
+= 11.0 =
+		
 Tested up to 3.6
 
 = 11.1 =	
+
 Minor change in the admin layout.
+
+= 11.2 =
+
+1. Tested up to 3.8
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (continuous-scroller.po) available in the languages folder.

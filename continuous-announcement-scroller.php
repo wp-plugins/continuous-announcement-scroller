@@ -1,11 +1,10 @@
 <?php
-
 /*
 Plugin Name: Continuous announcement scroller
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Description: This plug-in will create a vertical scroll continuous announcement for your wordpress website, <a href="http://www.gopiplus.com/work/" target="_blank">Live demo</a>.
 Author: Gopi.R
-Version: 11.1
+Version: 11.2
 Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Donate link: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags: Continuous, announcement, scroller, message
@@ -15,10 +14,19 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_cas_TABLE", $wpdb->prefix . "cas_plugin");
-define("cas_UNIQUE_NAME", "continuous-announcement-scroller");
-define("cas_TITLE", "Continuous announcement scroller");
 define('cas_FAV', 'http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/');
-define('cas_LINK', 'Check official website for more information <a target="_blank" href="'.cas_FAV.'">click here</a>');
+
+if ( ! defined( 'WP_cas_BASENAME' ) )
+	define( 'WP_cas_BASENAME', plugin_basename( __FILE__ ) );
+	
+if ( ! defined( 'WP_cas_PLUGIN_NAME' ) )
+	define( 'WP_cas_PLUGIN_NAME', trim( dirname( WP_cas_BASENAME ), '/' ) );
+	
+if ( ! defined( 'WP_cas_PLUGIN_URL' ) )
+	define( 'WP_cas_PLUGIN_URL', WP_PLUGIN_URL . '/' . WP_cas_PLUGIN_NAME );
+	
+if ( ! defined( 'WP_cas_ADMIN_URL' ) )
+	define( 'WP_cas_ADMIN_URL', get_option('siteurl') . '/wp-admin/options-general.php?page=continuous-announcement-scroller' );
 
 function cas() 
 {
@@ -104,14 +112,14 @@ function cas()
 		var cas_obj	= '';
 		var cas_scrollPos 	= '';
 		var cas_numScrolls	= '';
-		var cas_heightOfElm = '<?php echo $dis_num_height; ?>'; // Height of each element (px)
+		var cas_heightOfElm = '<?php echo $dis_num_height; ?>';
 		var cas_numberOfElm = '<?php echo $cas_count; ?>';
 		var cas_scrollOn 	= 'true';
 		function cas_createscroll() 
 		{
 			<?php echo $cas_x; ?>
 			cas_obj	= document.getElementById('cas_Holder');
-			cas_obj.style.height = (cas_numberOfElm * cas_heightOfElm) + 'px'; // Set height of DIV
+			cas_obj.style.height = (cas_numberOfElm * cas_heightOfElm) + 'px';
 			cas_content();
 		}
 		</script>
@@ -140,7 +148,7 @@ function cas_install()
 			  `cas_order` int(11) NOT NULL default '0',
 			  `cas_status` char(3) NOT NULL default 'No',
 			  `cas_date` datetime NOT NULL default '0000-00-00 00:00:00',
-			  PRIMARY KEY  (`cas_id`) )
+			  PRIMARY KEY  (`cas_id`) ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 			");
 		$sSql = "INSERT INTO `". WP_cas_TABLE . "` (`cas_text`,`cas_link`, `cas_order`, `cas_status`, `cas_date`)"; 
 		$sSql = $sSql . "VALUES ('This is simply dummy announcement text.','http://www.gopiplus.com/work/', '1', 'YES', '0000-00-00 00:00:00');";
@@ -162,8 +170,11 @@ function cas_install()
 
 function cas_control() 
 {
-	echo '<p>Continuous announcement scroller. <a href="options-general.php?page=continuous-announcement-scroller">click here</a> to update announcement</p>';
-	echo cas_LINK;
+	echo '<p><b>';
+	_e('Continuous announcement scroller', 'continuous-scroller');
+	echo '.</b> ';
+	_e('Check official website for more information', 'continuous-scroller');
+	?> <a target="_blank" href="<?php echo cas_FAV; ?>"><?php _e('click here', 'continuous-scroller'); ?></a></p><?php
 }
 
 function cas_widget($args) 
@@ -199,7 +210,8 @@ function cas_admin_options()
 
 function cas_add_to_menu() 
 {
-	add_options_page('Continuous announcement scroller', 'Continuous announcement scroller', 'manage_options', 'continuous-announcement-scroller', 'cas_admin_options' );
+	add_options_page(__('Continuous announcement scroller', 'continuous-scroller'), 
+				__('Continuous announcement scroller', 'continuous-scroller'), 'manage_options', 'continuous-announcement-scroller', 'cas_admin_options' );
 }
 
 if (is_admin()) 
@@ -211,12 +223,14 @@ function cas_init()
 {
 	if(function_exists('wp_register_sidebar_widget')) 
 	{
-		wp_register_sidebar_widget('continuous-announcement-scroller', 'Continuous announcement scroller', 'cas_widget');
+		wp_register_sidebar_widget('continuous-announcement-scroller', 
+					__('Continuous announcement scroller', 'continuous-scroller'), 'cas_widget');
 	}
 	
 	if(function_exists('wp_register_widget_control')) 
 	{
-		wp_register_widget_control('continuous-announcement-scroller', array('Continuous announcement scroller', 'widgets'), 'cas_control');
+		wp_register_widget_control('continuous-announcement-scroller', 
+					array( __('Continuous announcement scroller', 'continuous-scroller'), 'widgets'), 'cas_control');
 	} 
 }
 
@@ -232,10 +246,16 @@ function cas_add_javascript_files()
 {
 	if (!is_admin())
 	{
-		wp_enqueue_script( 'continuous-announcement-scroller', get_option('siteurl').'/wp-content/plugins/continuous-announcement-scroller/continuous-announcement-scroller.js');
+		wp_enqueue_script( 'continuous-announcement-scroller', WP_cas_PLUGIN_URL.'/continuous-announcement-scroller.js');
 	}	
 }
 
+function cas_textdomain() 
+{
+	  load_plugin_textdomain( 'continuous-scroller', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+add_action('plugins_loaded', 'cas_textdomain');
 add_action('init', 'cas_add_javascript_files');
 add_action("plugins_loaded", "cas_init");
 register_activation_hook(__FILE__, 'cas_install');

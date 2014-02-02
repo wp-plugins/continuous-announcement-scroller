@@ -13,7 +13,7 @@ $result = $wpdb->get_var($sSql);
 
 if ($result != '1')
 {
-	?><div class="error fade"><p><strong>Oops, selected details doesn't exist.</strong></p></div><?php
+	?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist', 'continuous-scroller'); ?></strong></p></div><?php
 }
 else
 {
@@ -50,28 +50,28 @@ if (isset($_POST['cas_form_submit']) && $_POST['cas_form_submit'] == 'yes')
 	$form['cas_link'] = isset($_POST['cas_link']) ? $_POST['cas_link'] : '';
 	if ($form['cas_link'] == '')
 	{
-		$cas_errors[] = __('Please enter the link.', cas_UNIQUE_NAME);
+		$cas_errors[] = __('Please enter the link.', 'continuous-scroller');
 		$cas_error_found = TRUE;
 	}
 	
 	$form['cas_text'] = isset($_POST['cas_text']) ? $_POST['cas_text'] : '';
 	if ($form['cas_text'] == '')
 	{
-		$cas_errors[] = __('Please enter the announcement.', cas_UNIQUE_NAME);
+		$cas_errors[] = __('Please enter the announcement.', 'continuous-scroller');
 		$cas_error_found = TRUE;
 	}
 	
 	$form['cas_order'] = isset($_POST['cas_order']) ? $_POST['cas_order'] : '';
 	if ($form['cas_order'] == '')
 	{
-		$cas_errors[] = __('Please enter the display order, only number.', cas_UNIQUE_NAME);
+		$cas_errors[] = __('Please enter the display order, only number.', 'continuous-scroller');
 		$cas_error_found = TRUE;
 	}
 	
 	$form['cas_status'] = isset($_POST['cas_status']) ? $_POST['cas_status'] : '';
 	if ($form['cas_status'] == '')
 	{
-		$cas_errors[] = __('Please select the display status.', cas_UNIQUE_NAME);
+		$cas_errors[] = __('Please select the display status.', 'continuous-scroller');
 		$cas_error_found = TRUE;
 	}
 
@@ -90,7 +90,7 @@ if (isset($_POST['cas_form_submit']) && $_POST['cas_form_submit'] == 'yes')
 			);
 		$wpdb->query($sSql);
 		
-		$cas_success = 'Details was successfully updated.';
+		$cas_success = __('Details was successfully updated', 'continuous-scroller');
 	}
 }
 
@@ -106,46 +106,49 @@ if ($cas_error_found == FALSE && strlen($cas_success) > 0)
 {
 ?>
   <div class="updated fade">
-    <p><strong><?php echo $cas_success; ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=continuous-announcement-scroller">Click here</a> to view the details</strong></p>
+    <p><strong><?php echo $cas_success; ?> <a href="<?php echo WP_cas_ADMIN_URL; ?>"><?php _e('Click here to view the details', 'continuous-scroller'); ?></a></strong></p>
   </div>
   <?php
 }
 ?>
-<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/continuous-announcement-scroller/pages/setting.js"></script>
+<script language="JavaScript" src="<?php echo WP_cas_PLUGIN_URL; ?>/pages/setting.js"></script>
 <div class="form-wrap">
 	<div id="icon-edit" class="icon32 icon32-posts-post"><br></div>
-	<h2><?php echo cas_order; ?></h2>
+	<h2><?php _e('Continuous announcement scroller', 'continuous-scroller'); ?></h2>
 	<form name="cas_form" method="post" action="#" onsubmit="return _cas_submit()"  >
-      <h3>Update details</h3>
+      <h3><?php _e('Update details', 'continuous-scroller'); ?></h3>
 	  
-	  	<label for="tag-a">Announcement</label>
+	  	<label for="tag-a"><?php _e('Announcement', 'continuous-scroller'); ?></label>
 		<input name="cas_text" type="text" id="cas_text" value="<?php echo $form['cas_text']; ?>" size="120" />
-		<p>Please enter your announcement.</p>
+		<p><?php _e('Please enter your announcement.', 'continuous-scroller'); ?></p>
 		
-		<label for="tag-a">Link</label>
+		<label for="tag-a"><?php _e('Link', 'continuous-scroller'); ?></label>
 		<input name="cas_link" type="text" id="cas_link" value="<?php echo $form['cas_link']; ?>" size="120"  />
-		<p>Enter enter your link. When someone clicks on the announcement, where do you want to send them?</p>
+		<p><?php _e('Enter enter your link. When someone clicks on the announcement, where do you want to send them?', 'continuous-scroller'); ?></p>
 	  
-	  	<label for="tag-a">Display order</label>
+	  	<label for="tag-a"><?php _e('Display order', 'continuous-scroller'); ?></label>
 		<input name="cas_order" type="text" id="cas_order" value="<?php echo $form['cas_order']; ?>" />
-		<p>Enter your display order, only number.</p>
+		<p><?php _e('Enter your display order, only number.', 'continuous-scroller'); ?></p>
 		
-		<label for="tag-a">Display status</label>
+		<label for="tag-a"><?php _e('Display status', 'continuous-scroller'); ?></label>
 		<select name="cas_status" id="cas_status">
 			<option value='YES' <?php if($form['cas_status'] == 'YES') { echo "selected='selected'" ; } ?>>Yes</option>
 			<option value='NO' <?php if($form['cas_status'] == 'NO') { echo "selected='selected'" ; } ?>>No</option>
 		</select>
-		<p>Please select your display status.</p>
+		<p><?php _e('Please select your display status.', 'continuous-scroller'); ?></p>
 	  	  
       <input name="cas_id" id="cas_id" type="hidden" value="<?php echo $form['cas_id']; ?>">
       <input type="hidden" name="cas_form_submit" value="yes"/>
       <p class="submit">
-        <input name="publish" lang="publish" class="button" value="Update Details" type="submit" />
-        <input name="publish" lang="publish" class="button" onclick="_cas_redirect()" value="Cancel" type="button" />
-        <input name="Help" lang="publish" class="button" onclick="_cas_help()" value="Help" type="button" />
+        <input name="publish" lang="publish" class="button" value="<?php _e('Update Details', 'continuous-scroller'); ?>" type="submit" />
+        <input name="publish" lang="publish" class="button" onclick="_cas_redirect()" value="<?php _e('Cancel', 'continuous-scroller'); ?>" type="button" />
+        <input name="Help" lang="publish" class="button" onclick="_cas_help()" value="<?php _e('Help', 'continuous-scroller'); ?>" type="button" />
       </p>
 	  <?php wp_nonce_field('cas_form_edit'); ?>
     </form>
 </div>
-<p class="description"><?php echo cas_LINK; ?></p>
+<p class="description">
+	<?php _e('Check official website for more information', 'continuous-scroller'); ?>
+	<a target="_blank" href="<?php echo cas_FAV; ?>"><?php _e('click here', 'continuous-scroller'); ?></a>
+</p>
 </div>

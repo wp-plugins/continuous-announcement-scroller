@@ -18,7 +18,7 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 	
 	if ($result != '1')
 	{
-		?><div class="error fade"><p><strong>Oops, selected details doesn't exist (1).</strong></p></div><?php
+		?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist', 'continuous-scroller'); ?></strong></p></div><?php
 	}
 	else
 	{
@@ -36,7 +36,7 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 			
 			//	Set success message
 			$cas_success_msg = TRUE;
-			$cas_success = __('Selected record was successfully deleted.', cas_UNIQUE_NAME);
+			$cas_success = __('Selected record was successfully deleted.', 'continuous-scroller');
 		}
 	}
 	
@@ -48,34 +48,35 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 ?>
 <div class="wrap">
   <div id="icon-edit" class="icon32 icon32-posts-post"></div>
-    <h2><?php echo cas_TITLE; ?><a class="add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=continuous-announcement-scroller&amp;ac=add">Add New</a></h2>
+    <h2><?php _e('Continuous announcement scroller', 'continuous-scroller'); ?>
+	<a class="add-new-h2" href="<?php echo WP_cas_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'continuous-scroller'); ?></a></h2>
     <div class="tool-box">
 	<?php
 		$sSql = "SELECT * FROM `".WP_cas_TABLE."` order by cas_id desc";
 		$myData = array();
 		$myData = $wpdb->get_results($sSql, ARRAY_A);
 		?>
-		<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/continuous-announcement-scroller/pages/setting.js"></script>
+		<script language="JavaScript" src="<?php echo WP_cas_PLUGIN_URL; ?>/pages/setting.js"></script>
 		<form name="frm_cas_display" method="post">
       <table width="100%" class="widefat" id="straymanage">
         <thead>
           <tr>
             <th class="check-column" scope="col"><input type="checkbox" name="cas_group_item[]" /></th>
-			<th scope="col">Id</th>
-			<th scope="col">Text</th>
-            <th scope="col">Order</th>
-			<th scope="col">Status</th>
-			<th scope="col">Action</th>
+			<th scope="col"><?php _e('Id', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Text', 'continuous-scroller'); ?></th>
+            <th scope="col"><?php _e('Order', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Status', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Action', 'continuous-scroller'); ?></th>
           </tr>
         </thead>
 		<tfoot>
           <tr>
             <th class="check-column" scope="col"><input type="checkbox" name="cas_group_item[]" /></th>
-			<th scope="col">Id</th>
-			<th scope="col">Text</th>
-            <th scope="col">Order</th>
-			<th scope="col">Status</th>
-			<th scope="col">Action</th>
+			<th scope="col"><?php _e('Id', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Text', 'continuous-scroller'); ?></th>
+            <th scope="col"><?php _e('Order', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Status', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Action', 'continuous-scroller'); ?></th>
           </tr>
         </tfoot>
 		<tbody>
@@ -94,8 +95,8 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 						<td><?php echo $data['cas_status']; ?></td>
 						<td>
 						<div class="row-actions">
-							<span class="edit"><a title="Edit" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=continuous-announcement-scroller&amp;ac=edit&amp;did=<?php echo $data['cas_id']; ?>">Edit</a> | </span>
-							<span class="trash"><a onClick="javascript:_cas_delete('<?php echo $data['cas_id']; ?>')" href="javascript:void(0);">Delete</a></span> 
+						<span class="edit"><a title="Edit" href="<?php echo WP_cas_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['cas_id']; ?>"><?php _e('Edit', 'continuous-scroller'); ?></a> | </span>
+						<span class="trash"><a onClick="javascript:_cas_delete('<?php echo $data['cas_id']; ?>')" href="javascript:void(0);"><?php _e('Delete', 'continuous-scroller'); ?></a></span> 
 						</div>
 						</td>
 					</tr>
@@ -105,7 +106,7 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 			}
 			else
 			{
-				?><tr><td colspan="6" align="center">No records available.</td></tr><?php 
+				?><tr><td colspan="6" align="center"><?php _e('No records available.', 'continuous-scroller'); ?></td></tr><?php 
 			}
 			?>
 		</tbody>
@@ -115,17 +116,20 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
       </form>	
 	  <div class="tablenav">
 	  <h2>
-	  <a class="button add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=continuous-announcement-scroller&amp;ac=add">Add New</a>
-	  <a class="button add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=continuous-announcement-scroller&amp;ac=set">Setting Management</a>
-	  <a class="button add-new-h2" target="_blank" href="<?php echo cas_FAV; ?>">Help</a>
+	  <a class="button add-new-h2" href="<?php echo WP_cas_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'continuous-scroller'); ?></a>
+	  <a class="button add-new-h2" href="<?php echo WP_cas_ADMIN_URL; ?>&amp;ac=set"><?php _e('Setting Management', 'continuous-scroller'); ?></a>
+	  <a class="button add-new-h2" target="_blank" href="<?php echo cas_FAV; ?>"><?php _e('Help', 'continuous-scroller'); ?></a>
 	  </h2>
 	  </div>
 	  <div style="height:5px"></div>
-	<h3>Plugin configuration option</h3>
+	<h3><?php _e('Plugin configuration option', 'continuous-scroller'); ?></h3>
 	<ol>
-		<li>Add directly in to the theme using PHP code.</li>
-		<li>Drag and drop the widget to your sidebar.</li>
+		<li><?php _e('Add directly in to the theme using PHP code.', 'continuous-scroller'); ?></li>
+		<li><?php _e('Drag and drop the widget to your sidebar.', 'continuous-scroller'); ?></li>
 	</ol>
-	<p class="description"><?php echo cas_LINK; ?></p>
+	<p class="description">
+		<?php _e('Check official website for more information', 'continuous-scroller'); ?>
+		<a target="_blank" href="<?php echo cas_FAV; ?>"><?php _e('click here', 'continuous-scroller'); ?></a>
+	</p>
 	</div>
 </div>
