@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scro
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags:  Continuous, announcement, scroller, message
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 11.2
+Tested up to: 3.9
+Stable tag: 11.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -151,6 +151,11 @@ Minor change in the admin layout.
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (continuous-scroller.po) available in the languages folder.
 
+= 11.3 =
+
+1. Tested up to 3.9
+2. Restricted direct page access.
+
 == Changelog ==
 
 = 1.0 =
@@ -207,3 +212,8 @@ Minor change in the admin layout.
 1. Tested up to 3.8
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (continuous-scroller.po) available in the languages folder.
+
+= 11.3 =
+
+1. Tested up to 3.9
+2. Restricted direct page access.
