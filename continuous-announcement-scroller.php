@@ -4,7 +4,7 @@ Plugin Name: Continuous announcement scroller
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Description: Continuous announcement scroller wordpress plugin create an announcement widget in the website, its not a simply message display instead the message will scroll vertically from bottom to top like roller and many message display at the same time.
 Author: Gopi Ramasamy
-Version: 11.3
+Version: 11.4
 Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Donate link: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags: Continuous, announcement, scroller, message
@@ -14,7 +14,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
 
-global $wpdb, $wp_version;
+global $wpdb, $wp_version, $cas_db_version;
+$cas_db_version = "11.4";
 define("WP_cas_TABLE", $wpdb->prefix . "cas_plugin");
 define('cas_FAV', 'http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/');
 
@@ -55,13 +56,15 @@ function cas()
 	}
 
 	$sSql = "select cas_text,cas_link from ".WP_cas_TABLE." where cas_status='YES'"; 
+	$sSql = $sSql . " and (`cas_datestart` <= NOW() or `cas_datestart` = '0000-00-00')";
+	$sSql = $sSql . " and (`cas_dateend` >= NOW() or `cas_dateend` = '0000-00-00')";
 	if(trim($cas_randomorder) == "YES")
 	{
 		$sSql = $sSql . " ORDER BY rand()";
 	}
 	else
 	{
-		$sSql = $sSql . " ORDER BY cas_order,cas_date";
+		$sSql = $sSql . " ORDER BY cas_order";
 	}
 	$sSql = $sSql . " limit 0, $num_user";
 
@@ -138,29 +141,50 @@ function cas()
 
 function cas_install() 
 {
-	global $wpdb;
+	global $wpdb, $cas_db_version;
 	
-	if($wpdb->get_var("show tables like '". WP_cas_TABLE . "'") != WP_cas_TABLE) 
+	$cas_pluginversion = "";
+	$cas_tableexists = "YES";
+	$cas_pluginversion = get_option("cas_pluginversion");
+	
+	if($wpdb->get_var("show tables like '". WP_cas_TABLE . "'") != WP_cas_TABLE)
 	{
-		$wpdb->query("
-			CREATE TABLE IF NOT EXISTS `". WP_cas_TABLE . "` (
-			  `cas_id` int(11) NOT NULL auto_increment,
-			  `cas_text` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-			  `cas_link` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-			  `cas_order` int(11) NOT NULL default '0',
-			  `cas_status` char(3) NOT NULL default 'No',
-			  `cas_date` datetime NOT NULL default '0000-00-00 00:00:00',
-			  PRIMARY KEY  (`cas_id`) ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
-			");
-		$sSql = "INSERT INTO `". WP_cas_TABLE . "` (`cas_text`,`cas_link`, `cas_order`, `cas_status`, `cas_date`)"; 
-		$sSql = $sSql . "VALUES ('This is simply dummy announcement text.','http://www.gopiplus.com/work/', '1', 'YES', '0000-00-00 00:00:00');";
-		$wpdb->query($sSql);
-		$sSql = "INSERT INTO `". WP_cas_TABLE . "` (`cas_text`,`cas_link`, `cas_order`, `cas_status`, `cas_date`)"; 
-		$sSql = $sSql . "VALUES ('This is simply dummy announcement text.','http://www.gopiplus.com/work/', '2', 'YES', '0000-00-00 00:00:00');";
-		$wpdb->query($sSql);
-		$sSql = "INSERT INTO `". WP_cas_TABLE . "` (`cas_text`,`cas_link`, `cas_order`, `cas_status`, `cas_date`)"; 
-		$sSql = $sSql . "VALUES ('This is simply dummy announcement text.','http://www.gopiplus.com/work/', '3', 'YES', '0000-00-00 00:00:00');";
-		$wpdb->query($sSql);
+		$cas_tableexists = "NO";
+	}
+	
+	if(($cas_tableexists == "NO") || ($cas_pluginversion != $cas_db_version)) 
+	{
+		$sSql = "CREATE TABLE ". WP_cas_TABLE . " (
+			 cas_id mediumint(9) NOT NULL AUTO_INCREMENT,
+			 cas_text text NOT NULL,
+			 cas_order int(11) NOT NULL default '0',
+			 cas_status char(3) NOT NULL default 'YES',
+			 cas_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,	 
+			 cas_link VARCHAR(1024) DEFAULT '#' NOT NULL,
+			 cas_group VARCHAR(100) DEFAULT 'GROUP1' NOT NULL,
+			 cas_dateend datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+			 cas_datestart datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+			 UNIQUE KEY cas_id (cas_id)
+		  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		dbDelta( $sSql );
+		
+		if($cas_pluginversion == "")
+		{
+			add_option('cas_pluginversion', "11.4");
+		}
+		else
+		{
+			update_option( "cas_pluginversion", $cas_db_version );
+		}
+		
+		if($cas_tableexists == "NO")
+		{
+			$welcome_text = "This is simply dummy announcement text.";	
+			$rows_affected = $wpdb->insert( WP_cas_TABLE , array( 'cas_text' => $welcome_text) );
+			$rows_affected = $wpdb->insert( WP_cas_TABLE , array( 'cas_text' => $welcome_text) );
+			$rows_affected = $wpdb->insert( WP_cas_TABLE , array( 'cas_text' => $welcome_text) );
+		}
 	}
 	
 	add_option('cas_title', "Announcement Scroller");

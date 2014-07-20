@@ -40,12 +40,12 @@
         <h3><?php _e('Setting', 'continuous-scroller'); ?></h3>
 		
 		<label for="tag-width"><?php _e('Widget title', 'continuous-scroller'); ?></label>
-		<input name="cas_title" type="text" value="<?php echo $cas_title; ?>"  id="cas_title" size="70" maxlength="100">
+		<input name="cas_title" type="text" value="<?php echo $cas_title; ?>"  id="cas_title" size="50" maxlength="100">
 		<p><?php _e('Please enter your widget title.', 'continuous-scroller'); ?></p>
 		
 		<label for="tag-width"><?php _e('Scroll height', 'continuous-scroller'); ?></label>
 		<input name="cas_rec_height" type="text" value="<?php echo $cas_rec_height; ?>"  id="cas_rec_height" maxlength="3">
-		<p><?php _e('If any overlap in the announcement text at front end, you should arrange(increase/decrease) the height.', 'continuous-scroller'); ?> (Example: 40)</p>
+		<p><?php _e('If any overlap in the announcement text at front end, <br>you should arrange(increase/decrease) the height.', 'continuous-scroller'); ?> (Example: 40)</p>
 		
 		<label for="tag-width"><?php _e('Display record', 'continuous-scroller'); ?></label>
 		<input name="cas_dis_count" type="text" value="<?php echo $cas_dis_count; ?>"  id="cas_dis_count" maxlength="3">

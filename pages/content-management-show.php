@@ -66,8 +66,9 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 			<th scope="col"><?php _e('Id', 'continuous-scroller'); ?></th>
 			<th scope="col"><?php _e('Text', 'continuous-scroller'); ?></th>
             <th scope="col"><?php _e('Order', 'continuous-scroller'); ?></th>
-			<th scope="col"><?php _e('Status', 'continuous-scroller'); ?></th>
-			<th scope="col"><?php _e('Action', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Display', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Publish', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Expiration', 'continuous-scroller'); ?></th>
           </tr>
         </thead>
 		<tfoot>
@@ -76,8 +77,9 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 			<th scope="col"><?php _e('Id', 'continuous-scroller'); ?></th>
 			<th scope="col"><?php _e('Text', 'continuous-scroller'); ?></th>
             <th scope="col"><?php _e('Order', 'continuous-scroller'); ?></th>
-			<th scope="col"><?php _e('Status', 'continuous-scroller'); ?></th>
-			<th scope="col"><?php _e('Action', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Display', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Publish', 'continuous-scroller'); ?></th>
+			<th scope="col"><?php _e('Expiration', 'continuous-scroller'); ?></th>
           </tr>
         </tfoot>
 		<tbody>
@@ -91,15 +93,21 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 					<tr class="<?php if ($i&1) { echo'alternate'; } else { echo ''; }?>">
 						<td align="left"><input type="checkbox" value="<?php echo $data['cas_id']; ?>" name="cas_group_item[]"></td>
 						<td><?php echo $data['cas_id']; ?></td>
-						<td><a target="_blank" href="<?php echo $data['cas_link']; ?>"><?php echo stripslashes($data['cas_text']); ?></a></td>
-						<td><?php echo $data['cas_order']; ?></td>
-						<td><?php echo $data['cas_status']; ?></td>
 						<td>
+						<a target="_blank" href="<?php echo $data['cas_link']; ?>"><?php echo stripslashes($data['cas_text']); ?></a>
 						<div class="row-actions">
-						<span class="edit"><a title="Edit" href="<?php echo WP_cas_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['cas_id']; ?>"><?php _e('Edit', 'continuous-scroller'); ?></a> | </span>
-						<span class="trash"><a onClick="javascript:_cas_delete('<?php echo $data['cas_id']; ?>')" href="javascript:void(0);"><?php _e('Delete', 'continuous-scroller'); ?></a></span> 
+							<span class="edit">
+							<a title="Edit" href="<?php echo WP_cas_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['cas_id']; ?>">
+							<?php _e('Edit', 'continuous-scroller'); ?></a> | </span>
+							<span class="trash">
+							<a onClick="javascript:_cas_delete('<?php echo $data['cas_id']; ?>')" href="javascript:void(0);">
+							<?php _e('Delete', 'continuous-scroller'); ?></a></span> 
 						</div>
 						</td>
+						<td><?php echo $data['cas_order']; ?></td>
+						<td><?php echo $data['cas_status']; ?></td>
+						<td><?php echo substr($data['cas_datestart'],0,10); ?></td>
+						<td><?php echo substr($data['cas_dateend'],0,10); ?></td>
 					</tr>
 					<?php 
 					$i = $i+1; 
@@ -107,7 +115,7 @@ if (isset($_POST['frm_cas_display']) && $_POST['frm_cas_display'] == 'yes')
 			}
 			else
 			{
-				?><tr><td colspan="6" align="center"><?php _e('No records available.', 'continuous-scroller'); ?></td></tr><?php 
+				?><tr><td colspan="7" align="center"><?php _e('No records available.', 'continuous-scroller'); ?></td></tr><?php 
 			}
 			?>
 		</tbody>

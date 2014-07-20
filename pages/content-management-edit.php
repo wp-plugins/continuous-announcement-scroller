@@ -39,6 +39,8 @@ else
 		'cas_text' => $data['cas_text'],
 		'cas_order' => $data['cas_order'],
 		'cas_status' => $data['cas_status'],
+		'cas_datestart' => $data['cas_datestart'],
+		'cas_dateend' => $data['cas_dateend'],
 		'cas_id' => $data['cas_id']
 	);
 }
@@ -75,6 +77,9 @@ if (isset($_POST['cas_form_submit']) && $_POST['cas_form_submit'] == 'yes')
 		$cas_errors[] = __('Please select the display status.', 'continuous-scroller');
 		$cas_error_found = TRUE;
 	}
+	
+	$form['cas_datestart'] = isset($_POST['cas_datestart']) ? $_POST['cas_datestart'] : '';
+	$form['cas_dateend'] = isset($_POST['cas_dateend']) ? $_POST['cas_dateend'] : '';
 
 	//	No errors found, we can add this Group to the table
 	if ($cas_error_found == FALSE)
@@ -84,10 +89,12 @@ if (isset($_POST['cas_form_submit']) && $_POST['cas_form_submit'] == 'yes')
 				SET `cas_link` = %s,
 				`cas_text` = %s,
 				`cas_order` = %s,
-				`cas_status` = %s
+				`cas_status` = %s,
+				`cas_datestart` = %s,
+				`cas_dateend` = %s
 				WHERE cas_id = %d
 				LIMIT 1",
-				array($form['cas_link'], $form['cas_text'], $form['cas_order'], $form['cas_status'], $did)
+				array($form['cas_link'], $form['cas_text'], $form['cas_order'], $form['cas_status'], $form['cas_datestart'], $form['cas_dateend'], $did)
 			);
 		$wpdb->query($sSql);
 		
@@ -97,19 +104,20 @@ if (isset($_POST['cas_form_submit']) && $_POST['cas_form_submit'] == 'yes')
 
 if ($cas_error_found == TRUE && isset($cas_errors[0]) == TRUE)
 {
-?>
-  <div class="error fade">
-    <p><strong><?php echo $cas_errors[0]; ?></strong></p>
-  </div>
-  <?php
+	?>
+	<div class="error fade">
+		<p><strong><?php echo $cas_errors[0]; ?></strong></p>
+	</div>
+	<?php
 }
 if ($cas_error_found == FALSE && strlen($cas_success) > 0)
 {
-?>
-  <div class="updated fade">
-    <p><strong><?php echo $cas_success; ?> <a href="<?php echo WP_cas_ADMIN_URL; ?>"><?php _e('Click here to view the details', 'continuous-scroller'); ?></a></strong></p>
-  </div>
-  <?php
+	?>
+	<div class="updated fade">
+		<p><strong><?php echo $cas_success; ?> <a href="<?php echo WP_cas_ADMIN_URL; ?>">
+		<?php _e('Click here to view the details', 'continuous-scroller'); ?></a></strong></p>
+	</div>
+	<?php
 }
 ?>
 <script language="JavaScript" src="<?php echo WP_cas_PLUGIN_URL; ?>/pages/setting.js"></script>
@@ -120,12 +128,12 @@ if ($cas_error_found == FALSE && strlen($cas_success) > 0)
       <h3><?php _e('Update details', 'continuous-scroller'); ?></h3>
 	  
 	  	<label for="tag-a"><?php _e('Announcement', 'continuous-scroller'); ?></label>
-		<input name="cas_text" type="text" id="cas_text" value="<?php echo $form['cas_text']; ?>" size="120" />
+		<textarea name="cas_text" cols="88" rows="4" id="cas_text"><?php echo esc_html(stripslashes($form['cas_text'])); ?></textarea>
 		<p><?php _e('Please enter your announcement.', 'continuous-scroller'); ?></p>
 		
 		<label for="tag-a"><?php _e('Link', 'continuous-scroller'); ?></label>
-		<input name="cas_link" type="text" id="cas_link" value="<?php echo $form['cas_link']; ?>" size="120"  />
-		<p><?php _e('Enter enter your link. When someone clicks on the announcement, where do you want to send them?', 'continuous-scroller'); ?></p>
+		<input name="cas_link" type="text" id="cas_link" value="<?php echo $form['cas_link']; ?>" size="90"  />
+		<p><?php _e('When someone clicks on the announcement, where do you want to send them?. url must start with either http or https.', 'continuous-scroller'); ?></p>
 	  
 	  	<label for="tag-a"><?php _e('Display order', 'continuous-scroller'); ?></label>
 		<input name="cas_order" type="text" id="cas_order" value="<?php echo $form['cas_order']; ?>" />
@@ -137,6 +145,14 @@ if ($cas_error_found == FALSE && strlen($cas_success) > 0)
 			<option value='NO' <?php if($form['cas_status'] == 'NO') { echo "selected='selected'" ; } ?>>No</option>
 		</select>
 		<p><?php _e('Please select your display status.', 'continuous-scroller'); ?></p>
+		
+	  <label for="tag-display-order"><?php _e('Publish', 'continuous-scroller'); ?></label>
+      <input name="cas_datestart" type="text" id="cas_datestart" value="<?php echo substr($form['cas_datestart'],0,10); ?>" maxlength="10" />
+      <p><?php _e('Please enter the announcement publish date in this format YYYY-MM-DD.', 'continuous-scroller'); ?></p>
+	  
+	  <label for="tag-display-order"><?php _e('Expiration date', 'continuous-scroller'); ?></label>
+      <input name="cas_dateend" type="text" id="cas_dateend" value="<?php echo substr($form['cas_dateend'],0,10); ?>" maxlength="10" />
+      <p><?php _e('Please enter the expiration date in this format YYYY-MM-DD <br /> 9999-12-30 : Is equal to no expire.', 'continuous-scroller'); ?></p>
 	  	  
       <input name="cas_id" id="cas_id" type="hidden" value="<?php echo $form['cas_id']; ?>">
       <input type="hidden" name="cas_form_submit" value="yes"/>

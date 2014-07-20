@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scro
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags:  Continuous, announcement, scroller, message
 Requires at least: 3.4
-Tested up to: 3.9
-Stable tag: 11.3
+Tested up to: 3.9.1
+Stable tag: 11.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -21,9 +21,9 @@ Check official website for live demo [http://www.gopiplus.com/work/2010/09/04/co
 * [Comments/Suggestion](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)			
 * [About author](http://www.gopiplus.com/work/)				
 
-Continuous announcement scroller wordpress plugin create an announcement widget in the website, its not a simply message display instead the message will scroll vertically from bottom to top like roller and many message display at the same time. 
+Continuous announcement scroller wordpress plugin create an announcement widget in the website, it’s not a simply message display instead the message will scroll vertically from bottom to top like roller and many message display at the same time. This plugin will support multilingual content. There is separate text management page available in the dashboard to add the announcement content.
 
-This plugin will support multilingual content. There is separate text management page available in the dashboard to add the announcement content.
+**Features of this plugin**
 
 1. Easy installation.  
 2. Widgets, so you can add pretty much anything. 
@@ -31,62 +31,48 @@ This plugin will support multilingual content. There is separate text management
 3. Can arrange the message order easily(see faq).
 4. Can disable the message temporary. 
 
-**We can use this plug-in in different way.**		
-
-1. Go to widget menu and drag and drop the "Continuous announcement scroller" widget to your sidebar location.
-		 	
-2. Copy and past the below mentioned code to your desired template location (ie in your PHP file).	
-&lt;?php if (function_exists (cas)) cas(); ?&gt;			
-
-See the live demo !		
-To see my all plugin : [click to go](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)			
-More info : [click to go](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)
-	
 == Installation ==	
 
-**Installation Instruction & Configuration**  	
+**Method 1**
 
-**Methode 1**	
+1. Download the plugin continuous-announcement-scroller.zip from download location.
+2. Unpack the continuous-announcement-scroller.zip file
+3. Extract the /continuous-announcement-scroller/ folder.
+4. Drop the continuous-announcement-scroller folder into your ‘wp-content/plugins’ folder.
+5. In word press administration panels, click on plug-in from the menu.
+6. You should see your new continuous announcement scroller plug-in listed.
+7. To turn the word presses plug-in on, click activate.
 
-*   Unpack the *.zip file and extract the /continuous-announcement-scroller/ folder.    
-*   Drop the 'continuous-announcement-scroller' folder into your 'wp-content/plugins' folder.    
-*   In word press administration panels, click on plug-in from the menu. 	  
-*   You should see your new 'continuous announcement scroller' plug-in listed under Inactive plug-in tab.			
-*   To turn the word presses plug-in on, click activate.   
- 
-**Methode 2**		
-		
-*	Go to 'add new' menu under 'plugins' tab in your wordpress admin.		
-*	Search 'continuous-announcement-scroller' plugin using search option.		
-*	Find the plugin & Click 'Install Now' link.		
+**Method 2**
 
-**Configuration**
+1. Go to ‘add new’ menu under ‘plugins’ tab in your word-press admin.
+2. Search continuous announcement scroller plugin using search option.
+3. Find the plugin and click ‘Install Now’ link.
+4. Finally click activate plug-in link to activate the plug-in.
 
-*   Option - 1 : Go to widget link under Appearance tab, Drag & drop 'continuous announcement scroller' into your side bar. 
+**Method 3**
 
-*	Option - 2 : Copy and past the below mentioned code in desired template location ie your PHP file.		
+1. Download the plugin continuous-announcement-scroller.zip from download location.
+2. Go to ‘add new’ menu under ‘plugins’ tab in your word press admin.
+3. Select upload link (top link menu).
+4. Upload the available continuous-announcement-scroller.zip file and click install now.
+5. Finally click activate plug-in link to activate the plug-in.
 	
-&lt;?php if (function_exists (cas)) cas(); ?&gt;	
-
-
 == Frequently Asked Questions ==
 
-**Can I display more news at same time?**	  
-**Can I display announcement in random order?**	 
-**Can I arrange the news scroll order?** 	
-**Can I hide the any news temporary?**	 
-**Can I set expiration for announcement?**	
-**Can I add font color?**	
-**Why my message content out of range?**	 
-**How many message display at same time?**	   
-**What is "Display number of record at the same time in scroll"?**	
-**What is "Enter max number of record to scroll"?**	
-**How to add HTML content in the message box?**	
+1. Can I display more news at same time?
+2. Can I display announcement in random order?
+3. Can I arrange the news scroll order?
+4. Can I hide the any news temporary?
+5. Can I set expiration for announcement?
+6. Can I add font color?
+7. Why my message content out of range? 
+8. How many message display at same time?   
+9. What is "Display number of record at the same time in scroll"?
+10. What is "Enter max number of record to scroll"?
+11. How to add HTML content in the message box?
 
-Click the below link to see answer for all questions!			
-More info : [click to go](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)		
-
-http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/	
+[Answer](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)		
 
 == Screenshots ==
 
@@ -156,6 +142,12 @@ Plugin *.po file (continuous-scroller.po) available in the languages folder.
 1. Tested up to 3.9
 2. Restricted direct page access.
 
+= 11.4 =
+
+1. New options to add Publish date and Expiration date for announcement.
+
+Those who are getting problem after plugin upgrade. Please Deactivate and Activate the plugin manually once. So the plugin will start the work as usual.
+
 == Changelog ==
 
 = 1.0 =
@@ -217,3 +209,9 @@ Plugin *.po file (continuous-scroller.po) available in the languages folder.
 
 1. Tested up to 3.9
 2. Restricted direct page access.
+
+= 11.4 =
+
+1. New options to add Publish date and Expiration date for announcement.
+
+Those who are getting problem after plugin upgrade. Please Deactivate and Activate the plugin manually once. So the plugin will start the work as usual.

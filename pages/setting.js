@@ -95,3 +95,11 @@ function _cas_help()
 {
 	window.open("http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/");
 }
+
+function _casNoEnterKey(e)
+{
+    var pK = e ? e.which : window.event.keyCode;
+    return pK != 13;
+}
+document.onkeypress = _casNoEnterKey;
+if (document.layers) document.captureEvents(Event.KEYPRESS);
