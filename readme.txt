@@ -3,10 +3,10 @@ Contributors: www.gopiplus.com, gopiplus
 Donate link: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
-Tags:  Continuous, announcement, scroller, message
+Tags:  continuous, announcement, scroller, message
 Requires at least: 3.4
-Tested up to: 3.9.1
-Stable tag: 11.4
+Tested up to: 4.0
+Stable tag: 11.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -21,7 +21,7 @@ Check official website for live demo [http://www.gopiplus.com/work/2010/09/04/co
 * [Comments/Suggestion](http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/)			
 * [About author](http://www.gopiplus.com/work/)				
 
-Continuous announcement scroller wordpress plugin create an announcement widget in the website, it’s not a simply message display instead the message will scroll vertically from bottom to top like roller and many message display at the same time. This plugin will support multilingual content. There is separate text management page available in the dashboard to add the announcement content.
+Continuous announcement scroller wordpress plugin create an announcement widget in the website, it's not a simply message display instead the message will scroll vertically from bottom to top like roller and many message display at the same time. This plugin will support multilingual content. There is separate text management page available in the dashboard to add the announcement content.
 
 **Features of this plugin**
 
@@ -148,6 +148,10 @@ Plugin *.po file (continuous-scroller.po) available in the languages folder.
 
 Those who are getting problem after plugin upgrade. Please Deactivate and Activate the plugin manually once. So the plugin will start the work as usual.
 
+= 11.5 =
+
+1. Tested up to 4.0
+
 == Changelog ==
 
 = 1.0 =
@@ -215,3 +219,7 @@ Plugin *.po file (continuous-scroller.po) available in the languages folder.
 1. New options to add Publish date and Expiration date for announcement.
 
 Those who are getting problem after plugin upgrade. Please Deactivate and Activate the plugin manually once. So the plugin will start the work as usual.
+
+= 11.5 =
+
+1. Tested up to 4.0
