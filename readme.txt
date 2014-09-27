@@ -157,6 +157,7 @@ Those who are getting problem after plugin upgrade. Please Deactivate and Activa
 
 1. In Setting Management admin page, New option added to control scrolling speed and delay.
 
+
 == Changelog ==
 
 = 1.0 =
