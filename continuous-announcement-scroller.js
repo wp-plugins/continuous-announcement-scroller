@@ -31,7 +31,9 @@ function cas_scroll() {
 			}
 		}
 	} else {
-		setTimeout("cas_scroll();", 10);
+		/* Speed values: 10 slow, 50 fast */
+		var speed = 60 - ( cas_speed * 10 );
+		setTimeout( "cas_scroll();", speed );
 	}
 }
 
@@ -65,5 +67,5 @@ function cas_content() {
 	cas_numScrolls 	= cas_array.length;
 	cas_obj.scrollTop 	= '0';
 	// start scrolling
-	setTimeout("cas_scroll();", 2000);
+	setTimeout("cas_scroll();", cas_waitseconds * 2000);
 }

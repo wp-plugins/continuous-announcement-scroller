@@ -4,7 +4,7 @@ Plugin Name: Continuous announcement scroller
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Description: Continuous announcement scroller wordpress plugin create an announcement widget in the website, its not a simply message display instead the message will scroll vertically from bottom to top like roller and many message display at the same time.
 Author: Gopi Ramasamy
-Version: 11.5
+Version: 11.6
 Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Donate link: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags: Continuous, announcement, scroller, message
@@ -41,6 +41,11 @@ function cas()
 	$dis_num_user = get_option('cas_dis_count');
 	$dis_num_height = get_option('cas_rec_height');
 	$cas_randomorder = get_option('cas_randomorder');
+	
+	$cas_speed = get_option('cas_speed');
+	if(!is_numeric($cas_speed)) { $cas_speed = 2; }
+	$cas_waitseconds = get_option('cas_waitseconds');
+	if(!is_numeric($cas_waitseconds)) { $cas_waitseconds = 2; }
 	
 	if(!is_numeric($num_user))
 	{
@@ -119,6 +124,8 @@ function cas()
 		var cas_numScrolls	= '';
 		var cas_heightOfElm = '<?php echo $dis_num_height; ?>';
 		var cas_numberOfElm = '<?php echo $cas_count; ?>';
+		var cas_speed 		= '<?php echo $cas_speed; ?>';
+        var cas_waitseconds = '<?php echo $cas_waitseconds; ?>';
 		var cas_scrollOn 	= 'true';
 		function cas_createscroll() 
 		{
@@ -192,6 +199,8 @@ function cas_install()
 	add_option('cas_dis_count', "5");
 	add_option('cas_rec_height', "40");
 	add_option('cas_randomorder', "YES");
+	add_option('cas_speed', "2");
+	add_option('cas_waitseconds', "2");
 }
 
 function cas_control() 
@@ -266,6 +275,9 @@ function cas_deactivation()
 	delete_option('cas_dis_count');
 	delete_option('cas_total_rec');
 	delete_option('cas_rec_height');
+	
+	delete_option('cas_speed');
+	delete_option('cas_waitseconds');
 }
 
 function cas_add_javascript_files() 

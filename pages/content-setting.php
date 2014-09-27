@@ -11,6 +11,9 @@
 	$cas_rec_height = get_option('cas_rec_height');
 	$cas_randomorder = get_option('cas_randomorder');
 	
+	$cas_speed = get_option('cas_speed');
+	$cas_waitseconds = get_option('cas_waitseconds');
+	
 	if (isset($_POST['cas_form_submit']) && $_POST['cas_form_submit'] == 'yes')
 	{
 		//	Just security thingy that wordpress offers us
@@ -22,12 +25,17 @@
 		$cas_rec_height = stripslashes($_POST['cas_rec_height']);
 		$cas_randomorder = stripslashes($_POST['cas_randomorder']);
 		
+		$cas_speed = stripslashes($_POST['cas_speed']);
+		$cas_waitseconds = stripslashes($_POST['cas_waitseconds']);
+		
 		update_option('cas_title', $cas_title );
 		update_option('cas_total_rec', $cas_total_rec );
 		update_option('cas_dis_count', $cas_dis_count );
 		update_option('cas_rec_height', $cas_rec_height );
 		update_option('cas_randomorder', $cas_randomorder );
 		
+		update_option('cas_speed', $cas_speed );
+		update_option('cas_waitseconds', $cas_waitseconds );
 		?>
 		<div class="updated fade">
 			<p><strong><?php _e('Details successfully updated.', 'continuous-scroller'); ?></strong></p>
@@ -61,6 +69,16 @@
 			<option value='NO' <?php if($cas_randomorder == 'NO') { echo "selected='selected'" ; } ?>>No</option>
 		</select>
 		<p><?php _e('Please select random display option.', 'continuous-scroller'); ?></p>
+		
+		<label for="cas_speed"><?php _e( 'Scrolling speed', 'continuous-scroller' ); ?></label>
+		<?php _e( 'Slow', 'vertical-scroll-recent-post' ); ?> 
+		<input name="cas_speed" type="range" value="<?php echo $cas_speed; ?>"  id="cas_speed" min="1" max="10" /> 
+		<?php _e( 'Fast', 'vertical-scroll-recent-post' ); ?> 
+		<p><?php _e( 'Set how fast you want to scroll.', 'continuous-scroller' ); ?></p>
+		
+		<label for="cas_waitseconds"><?php _e( 'Seconds to wait', 'vertical-scroll-recent-post' ); ?></label>
+		<input name="cas_waitseconds" type="text" value="<?php echo $cas_waitseconds; ?>" id="cas_waitseconds" maxlength="4" />
+		<p><?php _e( 'How many seconds you want the wait to scroll', 'continuous-scroller' ); ?> (<?php _e( 'Example', 'continuous-scroller' ); ?>: 5)</p>
 		
 		<input type="hidden" name="cas_form_submit" value="yes"/>
 		<p class="submit">

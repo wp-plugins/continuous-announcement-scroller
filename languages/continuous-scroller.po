@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Continuous announcement scroller 11.2\n"
-"POT-Creation-Date: 2014-08-02 14:29+0800\n"
-"PO-Revision-Date: 2014-08-02 14:29+0800\n"
+"POT-Creation-Date: 2014-09-27 23:38+0800\n"
+"PO-Revision-Date: 2014-09-27 23:38+0800\n"
 "Last-Translator: \n"
 "Language-Team: www.gopiplus.com <www.gopiplus.com>\n"
 "MIME-Version: 1.0\n"
@@ -13,28 +13,28 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../continuous-announcement-scroller.php:200
-#: ../continuous-announcement-scroller.php:239
-#: ../continuous-announcement-scroller.php:240
-#: ../continuous-announcement-scroller.php:253
-#: ../continuous-announcement-scroller.php:259
+#: ../continuous-announcement-scroller.php:209
+#: ../continuous-announcement-scroller.php:248
+#: ../continuous-announcement-scroller.php:249
+#: ../continuous-announcement-scroller.php:262
+#: ../continuous-announcement-scroller.php:268
 #: ../pages/content-management-add.php:102
 #: ../pages/content-management-edit.php:126
 #: ../pages/content-management-show.php:52 ../pages/content-setting.php:6
 msgid "Continuous announcement scroller"
 msgstr ""
 
-#: ../continuous-announcement-scroller.php:202
+#: ../continuous-announcement-scroller.php:211
 #: ../pages/content-management-add.php:144
 #: ../pages/content-management-edit.php:168
-#: ../pages/content-management-show.php:140 ../pages/content-setting.php:75
+#: ../pages/content-management-show.php:140 ../pages/content-setting.php:93
 msgid "Check official website for more information"
 msgstr ""
 
-#: ../continuous-announcement-scroller.php:203
+#: ../continuous-announcement-scroller.php:212
 #: ../pages/content-management-add.php:145
 #: ../pages/content-management-edit.php:169
-#: ../pages/content-management-show.php:141 ../pages/content-setting.php:76
+#: ../pages/content-management-show.php:141 ../pages/content-setting.php:94
 msgid "click here"
 msgstr ""
 
@@ -137,18 +137,18 @@ msgid ""
 "9999-12-30 : Is equal to no expire."
 msgstr ""
 
-#: ../pages/content-management-add.php:136 ../pages/content-setting.php:67
+#: ../pages/content-management-add.php:136 ../pages/content-setting.php:85
 msgid "Submit"
 msgstr ""
 
 #: ../pages/content-management-add.php:137
-#: ../pages/content-management-edit.php:161 ../pages/content-setting.php:68
+#: ../pages/content-management-edit.php:161 ../pages/content-setting.php:86
 msgid "Cancel"
 msgstr ""
 
 #: ../pages/content-management-add.php:138
 #: ../pages/content-management-edit.php:162
-#: ../pages/content-management-show.php:130 ../pages/content-setting.php:69
+#: ../pages/content-management-show.php:130 ../pages/content-setting.php:87
 msgid "Help"
 msgstr ""
 
@@ -231,54 +231,82 @@ msgstr ""
 msgid "Drag and drop the widget to your sidebar."
 msgstr ""
 
-#: ../pages/content-setting.php:33
+#: ../pages/content-setting.php:41
 msgid "Details successfully updated."
 msgstr ""
 
-#: ../pages/content-setting.php:40
+#: ../pages/content-setting.php:48
 msgid "Setting"
 msgstr ""
 
-#: ../pages/content-setting.php:42
+#: ../pages/content-setting.php:50
 msgid "Widget title"
 msgstr ""
 
-#: ../pages/content-setting.php:44
+#: ../pages/content-setting.php:52
 msgid "Please enter your widget title."
 msgstr ""
 
-#: ../pages/content-setting.php:46
+#: ../pages/content-setting.php:54
 msgid "Scroll height"
 msgstr ""
 
-#: ../pages/content-setting.php:48
+#: ../pages/content-setting.php:56
 msgid ""
 "If any overlap in the announcement text at front end, <br>you should arrange"
 "(increase/decrease) the height."
 msgstr ""
 
-#: ../pages/content-setting.php:50
+#: ../pages/content-setting.php:58
 msgid "Display record"
 msgstr ""
 
-#: ../pages/content-setting.php:52
+#: ../pages/content-setting.php:60
 msgid ""
 "Please enter number of records you want to display at the same time in "
 "scroll."
 msgstr ""
 
-#: ../pages/content-setting.php:54
+#: ../pages/content-setting.php:62
 msgid "Record to scroll"
 msgstr ""
 
-#: ../pages/content-setting.php:56
+#: ../pages/content-setting.php:64
 msgid "Please enter maximum number of records to scroll."
 msgstr ""
 
-#: ../pages/content-setting.php:58
+#: ../pages/content-setting.php:66
 msgid "Random"
 msgstr ""
 
-#: ../pages/content-setting.php:63
+#: ../pages/content-setting.php:71
 msgid "Please select random display option."
+msgstr ""
+
+#: ../pages/content-setting.php:73
+msgid "Scrolling speed"
+msgstr ""
+
+#: ../pages/content-setting.php:74
+msgid "Slow"
+msgstr ""
+
+#: ../pages/content-setting.php:76
+msgid "Fast"
+msgstr ""
+
+#: ../pages/content-setting.php:77
+msgid "Set how fast you want to scroll."
+msgstr ""
+
+#: ../pages/content-setting.php:79
+msgid "Seconds to wait"
+msgstr ""
+
+#: ../pages/content-setting.php:81
+msgid "How many seconds you want the wait to scroll"
+msgstr ""
+
+#: ../pages/content-setting.php:81
+msgid "Example"
 msgstr ""

@@ -6,7 +6,7 @@ Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scro
 Tags:  continuous, announcement, scroller, message
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 11.5
+Stable tag: 11.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -30,6 +30,7 @@ Continuous announcement scroller wordpress plugin create an announcement widget 
 3. Easy scroller setting. 
 3. Can arrange the message order easily(see faq).
 4. Can disable the message temporary. 
+5. Option to control scrolling speed and delay.
 
 == Installation ==	
 
@@ -152,6 +153,10 @@ Those who are getting problem after plugin upgrade. Please Deactivate and Activa
 
 1. Tested up to 4.0
 
+= 11.6 =
+
+1. In Setting Management admin page, New option added to control scrolling speed and delay.
+
 == Changelog ==
 
 = 1.0 =
@@ -223,3 +228,7 @@ Those who are getting problem after plugin upgrade. Please Deactivate and Activa
 = 11.5 =
 
 1. Tested up to 4.0
+
+= 11.6 =
+
+1. In Setting Management admin page, New option added to control scrolling speed and delay.
