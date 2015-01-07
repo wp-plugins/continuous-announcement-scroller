@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scro
 Plugin URI: http://www.gopiplus.com/work/2010/09/04/continuous-announcement-scroller/
 Tags:  continuous, announcement, scroller, message
 Requires at least: 3.4
-Tested up to: 4.0
-Stable tag: 11.6
+Tested up to: 4.1
+Stable tag: 11.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -157,6 +157,9 @@ Those who are getting problem after plugin upgrade. Please Deactivate and Activa
 
 1. In Setting Management admin page, New option added to control scrolling speed and delay.
 
+= 11.7 =
+
+1. Tested up to 4.1
 
 == Changelog ==
 
@@ -233,3 +236,7 @@ Those who are getting problem after plugin upgrade. Please Deactivate and Activa
 = 11.6 =
 
 1. In Setting Management admin page, New option added to control scrolling speed and delay.
+
+= 11.7 =
+
+1. Tested up to 4.1
